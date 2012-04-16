@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD6EB615-43F1-4CE6-A15B-52C0291623A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NServiceBus.Xms.Transport</RootNamespace>
+    <AssemblyName>NServiceBus.Xms.Transport</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="amqmdnet, Version=1.0.0.3, Culture=neutral, PublicKeyToken=dd3cb1c9aae9ec97, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\amqmdnet.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.XMS, Version=1.1.2.0, Culture=neutral, PublicKeyToken=d2666ab12fca862b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\IBM.XMS.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\lib\nsb2.6\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\..\lib\nsb2.6\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\..\lib\nsb2.6\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Delay.cs" />
+    <Compile Include="IXmsConsumer.cs" />
+    <Compile Include="XmsCommitPerCallProducer.cs" />
+    <Compile Include="XmsPooledConsumer.cs" />
+    <Compile Include="XmsTransactedConsumer.cs" />
+    <Compile Include="IXmsProducer.cs" />
+    <Compile Include="Pooling\IExpirable.cs" />
+    <Compile Include="Pooling\StackStore.cs" />
+    <Compile Include="Pooling\IStore.cs" />
+    <Compile Include="Config\XmsTransportConfigure.cs" />
+    <Compile Include="Config\XmsTransportConfig.cs" />
+    <Compile Include="Config\ConfigureXmsExtensions.cs" />
+    <Compile Include="Clock.cs" />
+    <Compile Include="Pooling\ExpirableItem.cs" />
+    <Compile Include="Pooling\Pool.cs" />
+    <Compile Include="XmsConsumerProvider.cs" />
+    <Compile Include="XmsConsumer.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="XmsPooledProducer.cs" />
+    <Compile Include="XmsProducerProvider.cs" />
+    <Compile Include="XmsDestination.cs" />
+    <Compile Include="XmsProducer.cs" />
+    <Compile Include="XmsCommitPerScopeProducer.cs" />
+    <Compile Include="XmsTransport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmsUtilities.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
